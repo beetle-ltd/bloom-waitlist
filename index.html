@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bloom Waitlist</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <main class="main">
+        <img src="./assets/bloom.png" alt="bloom logo" srcset="" />
+        <h1>Hey there! Join the waitlist! 🎉</h1>
+        <p>Be the first to know when the app is available!</p>
+
+        <!-- <form action="">
+          <div class="custom__input input__email">
+            <img src="./assets/email.svg" alt="email" srcset="" />
+            <input type="email" placeholder="Email" />
+          </div>
+          <div class="custom__input input__phone">
+            <img src="./assets/whatsapp.svg" alt="email" srcset="" />
+            <input type="number" placeholder="Phone number" />
+          </div>
+          <div>
+            <p>What is your type of business?</p>
+            <div>
+              <div>
+                <input type="radio" name="reseller" id="reseller" />
+                <label for="reseller">Reseller</label>
+              </div>
+              <div>
+                <input type="radio" name="retailer" id="retailer" />
+                <label for="retailer">Retailer/Wholeseller</label>
+              </div>
+            </div>
+          </div>
+          <button type="submit">Join the waitlist</button>
+        </form> -->
+
+        <form
+          id="waitlistForm"
+          method="POST"
+          action="https://script.google.com/a/macros/lightforth.org/s/AKfycbzhkpU8UWLrs60M89koTx1VB5OAh-a1pO0zGG9_fW02KDTS1zeXqe9rMesShoIXLo61/exec"
+        >
+          <div class="custom__input input__email">
+            <img src="./assets/email.svg" alt="email" srcset="" />
+            <input type="email" name="email" placeholder="Email" required />
+          </div>
+          <div class="custom__input input__phone">
+            <img src="./assets/whatsapp.svg" alt="email" srcset="" />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone number"
+              required
+            />
+          </div>
+          <div>
+            <p>What is your type of business?</p>
+            <div>
+              <div>
+                <input type="radio" name="reseller" id="reseller" required />
+                <label for="reseller">Reseller</label>
+              </div>
+              <div>
+                <input type="radio" name="retailer" id="retailer" required />
+                <label for="retailer">Retailer/Wholeseller</label>
+              </div>
+            </div>
+          </div>
+          <button type="submit">Join the waitlist</button>
+        </form>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-container">
+          <img
+            src="./assets/bloom_white.png"
+            alt="bloom logo white"
+            srcset=""
+          />
+          <p>Copyright © 2024 Beetle Ltd. All rights reserved.</p>
+          <div class="socials">
+            <img src="./assets/linkedin.svg" alt="linkedin" srcset="" />
+            <img src="./assets/twitter.svg" alt="twitter" srcset="" />
+            <img src="./assets/instagram.svg" alt="instagram" srcset="" />
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- <script>
+      const form = document.getElementById("waitlistForm");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(
+          "https://script.google.com/a/macros/lightforth.org/s/AKfycbzhkpU8UWLrs60M89koTx1VB5OAh-a1pO0zGG9_fW02KDTS1zeXqe9rMesShoIXLo61/exec",
+          {
+            method: "POST",
+            body: new FormData(form),
+          }
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.result === "success") {
+              alert("Thank you for joining our waitlist!");
+              form.reset();
+            } else {
+              alert("There was an error. Please try again.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("There was an error. Please try again.");
+          });
+      });
+    </script> -->
+  </body>
+</html>
