@@ -1,120 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full bg-gray-100">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bloom Waitlist</title>
-    <link rel="stylesheet" href="index.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .custom-input {
+        background-image: url("./assets/email.svg");
+        background-repeat: no-repeat;
+        background-position: 12px center;
+        padding-left: 48px;
+      }
+      .custom-input-phone {
+        background-image: url("./assets/whatsapp.svg");
+      }
+    </style>
   </head>
-  <body>
-    <div class="container">
-      <main class="main">
-        <img src="./assets/bloom.png" alt="bloom logo" srcset="" />
-        <h1>Hey there! Join the waitlist! 🎉</h1>
-        <p>Be the first to know when the app is available!</p>
-
-        <!-- <form action="">
-          <div class="custom__input input__email">
-            <img src="./assets/email.svg" alt="email" srcset="" />
-            <input type="email" placeholder="Email" />
-          </div>
-          <div class="custom__input input__phone">
-            <img src="./assets/whatsapp.svg" alt="email" srcset="" />
-            <input type="number" placeholder="Phone number" />
-          </div>
-          <div>
-            <p>What is your type of business?</p>
-            <div>
-              <div>
-                <input type="radio" name="reseller" id="reseller" />
-                <label for="reseller">Reseller</label>
-              </div>
-              <div>
-                <input type="radio" name="retailer" id="retailer" />
-                <label for="retailer">Retailer/Wholeseller</label>
-              </div>
-            </div>
-          </div>
-          <button type="submit">Join the waitlist</button>
-        </form> -->
-
+  <body class="h-full flex items-center justify-center bg-gray-100 px-4">
+    <div class="container max-w-md w-full bg-white rounded-2xl shadow-lg p-8">
+      <main class="space-y-6">
+        <img src="./assets/bloom.png" alt="bloom logo" class="h-12 mx-auto" />
+        <h1 class="text-3xl font-semibold text-center leading-[45px]">
+          Hey there! Join the waitlist! 🎉
+        </h1>
+        <p class="text-center text-gray-600">
+          Be the first to know when the app is available!
+        </p>
         <form
           id="waitlistForm"
           method="POST"
-          action="https://script.google.com/a/macros/lightforth.org/s/AKfycbzhkpU8UWLrs60M89koTx1VB5OAh-a1pO0zGG9_fW02KDTS1zeXqe9rMesShoIXLo61/exec"
+          action="https://script.google.com/a/macros/lightforth.org/s/AKfycbxX7UNOPuOQXiXKYUj4JuNO9oRzEfjmDW771jdrylX7JVqAfmIcX_CamVHbMY_l508c/exec"
+          class="space-y-4"
         >
-          <div class="custom__input input__email">
-            <img src="./assets/email.svg" alt="email" srcset="" />
-            <input type="email" name="email" placeholder="Email" required />
+          <div>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+              class="custom-input w-full h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
           </div>
-          <div class="custom__input input__phone">
-            <img src="./assets/whatsapp.svg" alt="email" srcset="" />
+          <div>
             <input
               type="tel"
               name="phone"
               placeholder="Phone number"
               required
+              class="custom-input custom-input-phone w-full h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
-          <div>
-            <p>What is your type of business?</p>
-            <div>
-              <div>
-                <input type="radio" name="reseller" id="reseller" required />
-                <label for="reseller">Reseller</label>
+          <div class="space-y-2">
+            <p class="font-medium">What is your type of business?</p>
+            <div class="space-y-2">
+              <div class="flex items-center">
+                <input
+                  type="radio"
+                  name="businessType"
+                  id="reseller"
+                  value="reseller"
+                  required
+                  class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                />
+                <label for="reseller" class="ml-2 text-gray-700"
+                  >Reseller</label
+                >
               </div>
-              <div>
-                <input type="radio" name="retailer" id="retailer" required />
-                <label for="retailer">Retailer/Wholeseller</label>
+              <div class="flex items-center">
+                <input
+                  type="radio"
+                  name="businessType"
+                  id="retailer"
+                  value="retailer"
+                  required
+                  class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                />
+                <label for="retailer" class="ml-2 text-gray-700"
+                  >Retailer/Wholesaler</label
+                >
               </div>
             </div>
           </div>
-          <button type="submit">Join the waitlist</button>
+          <button
+            type="submit"
+            class="w-full bg-blue-500 text-white font-medium py-3 rounded-lg hover:bg-blue-600 transition duration-300"
+          >
+            Join the waitlist
+          </button>
         </form>
       </main>
-
-      <footer class="footer">
-        <div class="footer-container">
-          <img
-            src="./assets/bloom_white.png"
-            alt="bloom logo white"
-            srcset=""
-          />
-          <p>Copyright © 2024 Beetle Ltd. All rights reserved.</p>
-          <div class="socials">
-            <img src="./assets/linkedin.svg" alt="linkedin" srcset="" />
-            <img src="./assets/twitter.svg" alt="twitter" srcset="" />
-            <img src="./assets/instagram.svg" alt="instagram" srcset="" />
-          </div>
-        </div>
-      </footer>
     </div>
-
-    <!-- <script>
-      const form = document.getElementById("waitlistForm");
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        fetch(
-          "https://script.google.com/a/macros/lightforth.org/s/AKfycbzhkpU8UWLrs60M89koTx1VB5OAh-a1pO0zGG9_fW02KDTS1zeXqe9rMesShoIXLo61/exec",
-          {
-            method: "POST",
-            body: new FormData(form),
-          }
-        )
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.result === "success") {
-              alert("Thank you for joining our waitlist!");
-              form.reset();
-            } else {
-              alert("There was an error. Please try again.");
-            }
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-            alert("There was an error. Please try again.");
-          });
-      });
-    </script> -->
+    <footer class="fixed bottom-0 left-0 right-0 bg-black text-white py-3">
+      <div
+        class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center"
+      >
+        <img
+          src="./assets/bloom_white.png"
+          alt="bloom logo white"
+          class="h-10 mb-2 md:mb-0"
+        />
+        <p class="text-sm text-center md:text-left">
+          Copyright © 2024 Beetle Ltd. All rights reserved.
+        </p>
+        <div class="flex space-x-4 mt-2 md:mt-0">
+          <img src="./assets/linkedin.svg" alt="linkedin" class="h-5 w-5" />
+          <img src="./assets/twitter.svg" alt="twitter" class="h-5 w-5" />
+          <img src="./assets/instagram.svg" alt="instagram" class="h-5 w-5" />
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
