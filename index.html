@@ -22,10 +22,18 @@
     </style>
   </head>
   <body class="h-full bg-gray-100">
+    <!-- toast -->
+    <div
+      id="toast"
+      class="fixed top-5 right-5 bg-red-500 text-white px-4 py-2 rounded shadow-lg opacity-0 transition-opacity duration-300"
+    >
+      <p id="toast-message"></p>
+    </div>
     <div class="min-h-[92%] flex items-center">
       <div
         class="container max-w-md mx-auto w-full bg-white rounded-2xl shadow-lg p-8"
       >
+        <!-- main layout -->
         <main class="space-y-6 py-5 sm:py-2">
           <img src="./assets/bloom.png" alt="bloom logo" class="h-12 mx-auto" />
           <h1 class="text-3xl font-semibold text-center leading-[45px]">
@@ -35,6 +43,7 @@
             Be the first to know when the app is available!
           </p>
         </main>
+        <!-- form -->
         <form id="waitlistForm" method="POST" class="space-y-4">
           <div>
             <input
@@ -89,13 +98,44 @@
           <!-- Error Message Element -->
           <button
             type="submit"
-            class="w-full bg-blue-500 text-white font-medium py-3 rounded-lg hover:bg-blue-600 transition duration-300"
+            id="submit-button"
+            class="w-full flex items-center justify-center bg-blue-500 text-white font-medium py-3 rounded-lg hover:bg-blue-600 transition duration-300"
           >
-            Join the waitlist
+            <span id="submit-text">Join the waitlist</span>
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                fill="#fff"
+                version="1.1"
+                width="800px"
+                height="800px"
+                viewBox="0 0 26.349 26.35"
+                xml:space="preserve"
+                id="loader"
+                class="hidden ml-2 h-4 animate-spin"
+              >
+                <g>
+                  <g>
+                    <circle cx="13.792" cy="3.082" r="3.082" />
+                    <circle cx="13.792" cy="24.501" r="1.849" />
+                    <circle cx="6.219" cy="6.218" r="2.774" />
+                    <circle cx="21.365" cy="21.363" r="1.541" />
+                    <circle cx="3.082" cy="13.792" r="2.465" />
+                    <circle cx="24.501" cy="13.791" r="1.232" />
+                    <path
+                      d="M4.694,19.84c-0.843,0.843-0.843,2.207,0,3.05c0.842,0.843,2.208,0.843,3.05,0c0.843-0.843,0.843-2.207,0-3.05    C6.902,18.996,5.537,18.988,4.694,19.84z"
+                    />
+                    <circle cx="21.364" cy="6.218" r="0.924" />
+                  </g>
+                </g>
+              </svg>
+            </span>
           </button>
         </form>
       </div>
     </div>
+    <!-- footer -->
     <footer class="bg-black text-white py-3 min-h-[8%]">
       <div
         class="container mx-auto h-full px-4 flex flex-col md:flex-row justify-between items-center"
@@ -118,6 +158,20 @@
 
     <script>
       const form = document.getElementById("waitlistForm");
+      const submitButton = document.getElementById("submit-button");
+      const submitText = document.getElementById("submit-text");
+      const loader = document.getElementById("loader");
+      const toast = document.getElementById("toast");
+      const toastMessage = document.getElementById("toast-message");
+
+      // Function to show toast
+      function showToast(message) {
+        toastMessage.textContent = message;
+        toast.classList.add("opacity-100"); // Show toast
+        setTimeout(() => {
+          toast.classList.remove("opacity-100"); // Hide toast after 3 seconds
+        }, 3000);
+      }
 
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -126,7 +180,12 @@
         const phone = form.phone.value;
         const businessType = form.businessType.value;
         const errorMessageElement = document.getElementById("error-message");
-        errorMessageElement.textContent = "";
+        errorMessageElement.textContent = ""; // Clear any previous error
+
+        // Show loader and disable submit button
+        submitButton.disabled = true;
+        submitText.classList.add("hidden");
+        loader.classList.remove("hidden");
 
         try {
           const response = await fetch(
@@ -145,15 +204,23 @@
           );
 
           if (response.ok) {
+            // Redirect to the success page if the request is successful
             window.location.href = "/success.html";
           } else {
             const errorData = await response.json();
-            errorMessageElement.textContent =
-              errorData.message || "An error occurred. Please try again.";
+            showToast(
+              errorData.message || "An error occurred. Please try again."
+            );
           }
         } catch (error) {
-          errorMessageElement.textContent =
-            "Failed to submit the form. Please check your network connection and try again.";
+          showToast(
+            "Failed to submit the form. Please check your network connection and try again."
+          );
+        } finally {
+          // Hide loader and enable submit button
+          submitButton.disabled = false;
+          submitText.classList.remove("hidden");
+          loader.classList.add("hidden");
         }
       });
     </script>
