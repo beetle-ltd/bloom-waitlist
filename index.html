@@ -31,69 +31,64 @@
         <p class="text-center text-gray-600">
           Be the first to know when the app is available!
         </p>
-        <form
-          id="waitlistForm"
-          method="POST"
-          action="https://script.google.com/a/macros/lightforth.org/s/AKfycbxX7UNOPuOQXiXKYUj4JuNO9oRzEfjmDW771jdrylX7JVqAfmIcX_CamVHbMY_l508c/exec"
-          class="space-y-4"
-        >
-          <div>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              required
-              class="custom-input w-full h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            />
-          </div>
-          <div>
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone number"
-              required
-              class="custom-input custom-input-phone w-full h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            />
-          </div>
+      </main>
+      <form id="waitlistForm" method="POST" class="space-y-4">
+        <div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+            class="custom-input w-full h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+        </div>
+        <div>
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Phone number"
+            required
+            class="custom-input custom-input-phone w-full h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+        </div>
+        <div class="space-y-2">
+          <p class="font-medium">What is your type of business?</p>
           <div class="space-y-2">
-            <p class="font-medium">What is your type of business?</p>
-            <div class="space-y-2">
-              <div class="flex items-center">
-                <input
-                  type="radio"
-                  name="businessType"
-                  id="reseller"
-                  value="reseller"
-                  required
-                  class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-                />
-                <label for="reseller" class="ml-2 text-gray-700"
-                  >Reseller</label
-                >
-              </div>
-              <div class="flex items-center">
-                <input
-                  type="radio"
-                  name="businessType"
-                  id="retailer"
-                  value="retailer"
-                  required
-                  class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-                />
-                <label for="retailer" class="ml-2 text-gray-700"
-                  >Retailer/Wholesaler</label
-                >
-              </div>
+            <div class="flex items-center">
+              <input
+                type="radio"
+                name="businessType"
+                id="reseller"
+                value="reseller"
+                required
+                class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+              />
+              <label for="reseller" class="ml-2 text-gray-700">Reseller</label>
+            </div>
+            <div class="flex items-center">
+              <input
+                type="radio"
+                name="businessType"
+                id="retailer"
+                value="retailer"
+                required
+                class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+              />
+              <label for="retailer" class="ml-2 text-gray-700"
+                >Retailer/Wholesaler</label
+              >
             </div>
           </div>
-          <button
-            type="submit"
-            class="w-full bg-blue-500 text-white font-medium py-3 rounded-lg hover:bg-blue-600 transition duration-300"
-          >
-            Join the waitlist
-          </button>
-        </form>
-      </main>
+        </div>
+        <p id="error-message" class="text-red-500"></p>
+        <!-- Error Message Element -->
+        <button
+          type="submit"
+          class="w-full bg-blue-500 text-white font-medium py-3 rounded-lg hover:bg-blue-600 transition duration-300"
+        >
+          Join the waitlist
+        </button>
+      </form>
     </div>
     <footer class="fixed bottom-0 left-0 right-0 bg-black text-white py-3">
       <div
@@ -114,5 +109,49 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      const form = document.getElementById("waitlistForm");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const email = form.email.value;
+        const phone = form.phone.value;
+        const businessType = form.businessType.value;
+        const errorMessageElement = document.getElementById("error-message");
+        errorMessageElement.textContent = ""; // Clear any previous error
+
+        try {
+          const response = await fetch(
+            "https://api.myspotlight.me/api/v1/waitlist",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                email: email,
+                phoneNumber: phone,
+                type: businessType.toUpperCase(),
+              }),
+            }
+          );
+
+          if (response.ok) {
+            // Redirect to the success page if the request is successful
+            window.location.href = "/success.html";
+          } else {
+            // Handle errors, if any
+            const errorData = await response.json();
+            errorMessageElement.textContent =
+              errorData.message || "An error occurred. Please try again.";
+          }
+        } catch (error) {
+          errorMessageElement.textContent =
+            "Failed to submit the form. Please check your network connection and try again.";
+        }
+      });
+    </script>
   </body>
 </html>
