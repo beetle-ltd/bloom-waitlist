@@ -34,110 +34,118 @@
         class="container max-w-md mx-auto w-full bg-white rounded-2xl shadow-lg p-8"
       >
         <!-- main layout -->
-        <main class="space-y-6 py-5 sm:py-2">
-          <img src="./assets/bloom.png" alt="bloom logo" class="h-12 mx-auto" />
-          <h1 class="text-3xl font-semibold text-center leading-[45px]">
-            Hey there! Join the waitlist! 🎉
-          </h1>
-          <p class="text-center text-gray-600">
-            Be the first to know when the app is available!
-          </p>
-        </main>
-        <!-- form -->
-        <form
-          id="waitlistForm"
-          method="POST"
-          class="space-y-4"
-          autocomplete="off"
-        >
-          <div>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              required
-              class="custom-input w-full h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        <main class="py-5 sm:py-1">
+          <div class="pb-5">
+            <img
+              src="./assets/bloom.png"
+              alt="bloom logo"
+              class="h-12 mx-auto"
             />
+            <h1
+              class="text-3xl font-semibold text-center leading-[40px] pt-5 pb-2"
+            >
+              Hey there! Join the waitlist! 🎉
+            </h1>
+            <p class="text-center text-gray-600">
+              Be the first to know when the app is available!
+            </p>
           </div>
-          <div>
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone number"
-              required
-              class="custom-input custom-input-phone w-full h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            />
-          </div>
-          <div class="space-y-2">
-            <p class="font-medium">What is your type of business?</p>
+          <!-- form -->
+          <form
+            id="waitlistForm"
+            method="POST"
+            class="space-y-4"
+            autocomplete="off"
+          >
+            <div>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                class="custom-input w-full h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+            </div>
+            <div>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone number"
+                required
+                class="custom-input custom-input-phone w-full h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+            </div>
             <div class="space-y-2">
-              <div class="flex items-center">
-                <input
-                  type="radio"
-                  name="businessType"
-                  id="reseller"
-                  value="reseller"
-                  required
-                  class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-                />
-                <label for="reseller" class="ml-2 text-gray-700"
-                  >Reseller</label
-                >
-              </div>
-              <div class="flex items-center">
-                <input
-                  type="radio"
-                  name="businessType"
-                  id="retailer"
-                  value="retailer"
-                  required
-                  class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-                />
-                <label for="retailer" class="ml-2 text-gray-700"
-                  >Retailer/Wholesaler</label
-                >
+              <p class="font-medium">What is your type of business?</p>
+              <div class="space-y-2">
+                <div class="flex items-center">
+                  <input
+                    type="radio"
+                    name="businessType"
+                    id="reseller"
+                    value="reseller"
+                    required
+                    class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                  />
+                  <label for="reseller" class="ml-2 text-gray-700"
+                    >Reseller</label
+                  >
+                </div>
+                <div class="flex items-center">
+                  <input
+                    type="radio"
+                    name="businessType"
+                    id="retailer"
+                    value="retailer"
+                    required
+                    class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                  />
+                  <label for="retailer" class="ml-2 text-gray-700"
+                    >Retailer/Wholesaler</label
+                  >
+                </div>
               </div>
             </div>
-          </div>
-          <p id="error-message" class="text-red-500"></p>
-          <!-- Error Message Element -->
-          <button
-            type="submit"
-            id="submit-button"
-            class="w-full flex items-center justify-center bg-blue-500 text-white font-medium py-3 rounded-lg hover:bg-blue-600 transition duration-300"
-          >
-            <span id="submit-text">Join the waitlist</span>
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                fill="#fff"
-                version="1.1"
-                width="800px"
-                height="800px"
-                viewBox="0 0 26.349 26.35"
-                xml:space="preserve"
-                id="loader"
-                class="hidden ml-2 h-4 animate-spin"
-              >
-                <g>
+            <p id="error-message" class="text-red-500"></p>
+            <!-- Error Message Element -->
+            <button
+              type="submit"
+              id="submit-button"
+              class="w-full flex items-center justify-center bg-blue-500 text-white font-medium py-3 rounded-lg hover:bg-blue-600 transition duration-300"
+            >
+              <span id="submit-text">Join the waitlist</span>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  fill="#fff"
+                  version="1.1"
+                  width="800px"
+                  height="800px"
+                  viewBox="0 0 26.349 26.35"
+                  xml:space="preserve"
+                  id="loader"
+                  class="hidden ml-2 h-4 animate-spin"
+                >
                   <g>
-                    <circle cx="13.792" cy="3.082" r="3.082" />
-                    <circle cx="13.792" cy="24.501" r="1.849" />
-                    <circle cx="6.219" cy="6.218" r="2.774" />
-                    <circle cx="21.365" cy="21.363" r="1.541" />
-                    <circle cx="3.082" cy="13.792" r="2.465" />
-                    <circle cx="24.501" cy="13.791" r="1.232" />
-                    <path
-                      d="M4.694,19.84c-0.843,0.843-0.843,2.207,0,3.05c0.842,0.843,2.208,0.843,3.05,0c0.843-0.843,0.843-2.207,0-3.05    C6.902,18.996,5.537,18.988,4.694,19.84z"
-                    />
-                    <circle cx="21.364" cy="6.218" r="0.924" />
+                    <g>
+                      <circle cx="13.792" cy="3.082" r="3.082" />
+                      <circle cx="13.792" cy="24.501" r="1.849" />
+                      <circle cx="6.219" cy="6.218" r="2.774" />
+                      <circle cx="21.365" cy="21.363" r="1.541" />
+                      <circle cx="3.082" cy="13.792" r="2.465" />
+                      <circle cx="24.501" cy="13.791" r="1.232" />
+                      <path
+                        d="M4.694,19.84c-0.843,0.843-0.843,2.207,0,3.05c0.842,0.843,2.208,0.843,3.05,0c0.843-0.843,0.843-2.207,0-3.05    C6.902,18.996,5.537,18.988,4.694,19.84z"
+                      />
+                      <circle cx="21.364" cy="6.218" r="0.924" />
+                    </g>
                   </g>
-                </g>
-              </svg>
-            </span>
-          </button>
-        </form>
+                </svg>
+              </span>
+            </button>
+          </form>
+        </main>
       </div>
     </div>
     <!-- footer -->
@@ -213,6 +221,7 @@
             window.location.href = "/success.html";
           } else {
             const errorData = await response.json();
+            console.log(errorData);
             showToast(
               errorData.message || "An error occurred. Please try again."
             );
