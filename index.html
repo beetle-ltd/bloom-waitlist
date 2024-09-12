@@ -22,7 +22,7 @@
     </style>
   </head>
   <body class="h-full flex items-center justify-center bg-gray-100 px-4">
-    <div class="container max-w-md w-full bg-white rounded-2xl shadow-lg p-8">
+    <div class="max-w-md mx-auto my-8 w-full bg-white rounded-2xl shadow-lg p-8">
       <main class="space-y-6 py-5 sm:py-2">
         <img src="./assets/bloom.png" alt="bloom logo" class="h-12 mx-auto" />
         <h1 class="text-3xl font-semibold text-center leading-[45px]">
@@ -33,9 +33,8 @@
         </p>
         <form
           id="waitlistForm"
-          method="POST"
-          action="https://script.google.com/a/macros/lightforth.org/s/AKfycbxX7UNOPuOQXiXKYUj4JuNO9oRzEfjmDW771jdrylX7JVqAfmIcX_CamVHbMY_l508c/exec"
           class="space-y-4"
+          autocomplete="off"
         >
           <div>
             <input
@@ -97,22 +96,18 @@
     </div>
     <footer class="fixed bottom-0 left-0 right-0 bg-black text-white py-3">
       <div
-        class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center"
+        class="container mx-auto px-3 flex flex-col md:flex-row justify-between items-center"
       >
-        <img
-          src="./assets/bloom_white.png"
-          alt="bloom logo white"
-          class="h-10 mb-2 md:mb-0"
-        />
-        <p class="text-sm text-center md:text-left">
+        <p class="text-[13px] text-center md:text-left">
           Copyright © 2024 Beetle Ltd. All rights reserved.
         </p>
         <div class="flex space-x-4 mt-2 md:mt-0">
-          <img src="./assets/linkedin.svg" alt="linkedin" class="h-5 w-5" />
-          <img src="./assets/twitter.svg" alt="twitter" class="h-5 w-5" />
-          <img src="./assets/instagram.svg" alt="instagram" class="h-5 w-5" />
+          <img src="./assets/linkedin.svg" alt="linkedin" class="h-4 w-4" />
+          <img src="./assets/twitter.svg" alt="twitter" class="h-4 w-4" />
+          <img src="./assets/instagram.svg" alt="instagram" class="h-4 w-4" />
         </div>
       </div>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
