@@ -21,78 +21,84 @@
       }
     </style>
   </head>
-  <body class="h-full flex items-center justify-center bg-gray-100 px-4">
-    <div class="container max-w-md w-full bg-white rounded-2xl shadow-lg p-8">
-      <main class="space-y-6 py-5 sm:py-2">
-        <img src="./assets/bloom.png" alt="bloom logo" class="h-12 mx-auto" />
-        <h1 class="text-3xl font-semibold text-center leading-[45px]">
-          Hey there! Join the waitlist! 🎉
-        </h1>
-        <p class="text-center text-gray-600">
-          Be the first to know when the app is available!
-        </p>
-      </main>
-      <form id="waitlistForm" method="POST" class="space-y-4">
-        <div>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            required
-            class="custom-input w-full h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          />
-        </div>
-        <div>
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone number"
-            required
-            class="custom-input custom-input-phone w-full h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          />
-        </div>
-        <div class="space-y-2">
-          <p class="font-medium">What is your type of business?</p>
+  <body class="h-full bg-gray-100">
+    <div class="min-h-[92%] flex items-center">
+      <div
+        class="container max-w-md mx-auto w-full bg-white rounded-2xl shadow-lg p-8"
+      >
+        <main class="space-y-6 py-5 sm:py-2">
+          <img src="./assets/bloom.png" alt="bloom logo" class="h-12 mx-auto" />
+          <h1 class="text-3xl font-semibold text-center leading-[45px]">
+            Hey there! Join the waitlist! 🎉
+          </h1>
+          <p class="text-center text-gray-600">
+            Be the first to know when the app is available!
+          </p>
+        </main>
+        <form id="waitlistForm" method="POST" class="space-y-4">
+          <div>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+              class="custom-input w-full h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+          </div>
+          <div>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone number"
+              required
+              class="custom-input custom-input-phone w-full h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+          </div>
           <div class="space-y-2">
-            <div class="flex items-center">
-              <input
-                type="radio"
-                name="businessType"
-                id="reseller"
-                value="reseller"
-                required
-                class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-              />
-              <label for="reseller" class="ml-2 text-gray-700">Reseller</label>
-            </div>
-            <div class="flex items-center">
-              <input
-                type="radio"
-                name="businessType"
-                id="retailer"
-                value="retailer"
-                required
-                class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-              />
-              <label for="retailer" class="ml-2 text-gray-700"
-                >Retailer/Wholesaler</label
-              >
+            <p class="font-medium">What is your type of business?</p>
+            <div class="space-y-2">
+              <div class="flex items-center">
+                <input
+                  type="radio"
+                  name="businessType"
+                  id="reseller"
+                  value="reseller"
+                  required
+                  class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                />
+                <label for="reseller" class="ml-2 text-gray-700"
+                  >Reseller</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  type="radio"
+                  name="businessType"
+                  id="retailer"
+                  value="retailer"
+                  required
+                  class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                />
+                <label for="retailer" class="ml-2 text-gray-700"
+                  >Retailer/Wholesaler</label
+                >
+              </div>
             </div>
           </div>
-        </div>
-        <p id="error-message" class="text-red-500"></p>
-        <!-- Error Message Element -->
-        <button
-          type="submit"
-          class="w-full bg-blue-500 text-white font-medium py-3 rounded-lg hover:bg-blue-600 transition duration-300"
-        >
-          Join the waitlist
-        </button>
-      </form>
+          <p id="error-message" class="text-red-500"></p>
+          <!-- Error Message Element -->
+          <button
+            type="submit"
+            class="w-full bg-blue-500 text-white font-medium py-3 rounded-lg hover:bg-blue-600 transition duration-300"
+          >
+            Join the waitlist
+          </button>
+        </form>
+      </div>
     </div>
-    <footer class="fixed bottom-0 left-0 right-0 bg-black text-white py-3">
+    <footer class="bg-black text-white py-3 min-h-[8%]">
       <div
-        class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center"
+        class="container mx-auto h-full px-4 flex flex-col md:flex-row justify-between items-center"
       >
         <img
           src="./assets/bloom_white.png"
