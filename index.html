@@ -120,7 +120,7 @@
         const phone = form.phone.value;
         const businessType = form.businessType.value;
         const errorMessageElement = document.getElementById("error-message");
-        errorMessageElement.textContent = ""; // Clear any previous error
+        errorMessageElement.textContent = "";
 
         try {
           const response = await fetch(
@@ -139,10 +139,8 @@
           );
 
           if (response.ok) {
-            // Redirect to the success page if the request is successful
             window.location.href = "/success.html";
           } else {
-            // Handle errors, if any
             const errorData = await response.json();
             errorMessageElement.textContent =
               errorData.message || "An error occurred. Please try again.";
