@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Waitlist- Success</title>
+    <title>Waitlist - Success</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
@@ -12,41 +12,99 @@
       }
     </style>
   </head>
-  <body class="flex flex-col pt-16 justify-center h-dvh relative bg-gray-50">
-    <div class="text-center rounded-lg p-8 space-y-20 min-h-[92%]">
-      <img src="./assets/bloom.png" alt="Bloom logo" class="mx-auto h-24" />
-      <div class="space-y-4">
-        <img
-          src="./assets/checkmark.svg"
-          alt="Checkmark"
-          class="mx-auto h-28"
-        />
-        <h2 class="text-3xl md:text-5xl font-bold">Congratulations!</h2>
-        <p class="text-gray-600 text-lg md:text-xl">
-          You've successfully joined the waitlist.
-        </p>
-      </div>
-    </div>
-    <footer
-      class="bg-black text-white py-3 min-h-[8%] absolute bottom-0 w-full"
-    >
+  <body class="flex flex-col min-h-screen bg-gray-50">
+    <main class="flex-grow flex flex-col justify-center px-4 py-8">
       <div
-        class="container mx-auto h-full px-4 flex flex-col md:flex-row justify-between items-center space-y-5 text-center"
+        class="text-center rounded-lg p-6 sm:p-8 max-w-md w-full mx-auto space-y-6"
       >
         <img
-          src="./assets/bloom_white.png"
-          alt="bloom logo white"
-          class="h-10 mb-0"
+          src="./assets/bloom.png"
+          alt="Bloom logo"
+          class="mx-auto h-16 sm:h-20 md:h-24"
         />
-        <p class="text-sm text-center md:text-left">
-          Copyright © 2024 Beetle Ltd. All rights reserved.
-        </p>
-        <div class="flex space-x-4 mt-2 md:mt-0">
-          <img src="./assets/linkedin.svg" alt="linkedin" class="h-5 w-5" />
-          <img src="./assets/twitter.svg" alt="twitter" class="h-5 w-5" />
-          <img src="./assets/instagram.svg" alt="instagram" class="h-5 w-5" />
+        <div class="space-y-4">
+          <img
+            src="./assets/checkmark.svg"
+            alt="Checkmark"
+            class="mx-auto h-16 sm:h-20 md:h-28"
+          />
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold">
+            Congratulations!
+          </h2>
+          <p class="text-gray-600 text-base sm:text-lg md:text-xl">
+            You've successfully joined the waitlist.
+          </p>
+          <div
+            class="py-3 flex flex-col space-y-2 items-center justify-center space-x-2 text-gray-700 text-sm sm:text-base md:text-lg"
+          >
+            <img
+              src="https://static.whatsapp.net/rsrc.php/yZ/r/JvsnINJ2CZv.svg"
+              alt="WhatsApp"
+              class="block"
+            />
+            <p>
+              You will be redirected to join our
+
+              <span class="text-green-500 font-semibold">WhatsApp</span>
+              Community in
+              <span
+                id="countdown"
+                class="font-bold text-green-700 bg-green-100 px-1.5 py-0.5 rounded"
+                >5</span
+              >
+              seconds...
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-black text-white py-4 sm:py-5">
+      <div class="container mx-auto px-4">
+        <div
+          class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0"
+        >
+          <img
+            src="./assets/bloom_white.png"
+            alt="Bloom logo white"
+            class="h-7 sm:h-8 md:h-10"
+          />
+          <p class="text-xs sm:text-sm text-center">
+            Copyright © 2024 Beetle Ltd. All rights reserved.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="hover:opacity-75 transition-opacity">
+              <img src="./assets/linkedin.svg" alt="LinkedIn" class="h-5 w-5" />
+            </a>
+            <a href="#" class="hover:opacity-75 transition-opacity">
+              <img src="./assets/twitter.svg" alt="Twitter" class="h-5 w-5" />
+            </a>
+            <a href="#" class="hover:opacity-75 transition-opacity">
+              <img
+                src="./assets/instagram.svg"
+                alt="Instagram"
+                class="h-5 w-5"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
+
+    <script>
+      // Countdown functionality
+      let countdownDuration = 5;
+      const countdownElement = document.getElementById("countdown");
+      const whatsappGroupLink =
+        "https://chat.whatsapp.com/EFSZnUOPfQvCdlE8XRleKD"; // Replace with actual group link
+      const countdownInterval = setInterval(() => {
+        countdownDuration--;
+        countdownElement.textContent = countdownDuration;
+        if (countdownDuration <= 0) {
+          clearInterval(countdownInterval);
+          window.location.href = whatsappGroupLink;
+        }
+      }, 1000);
+    </script>
   </body>
 </html>
