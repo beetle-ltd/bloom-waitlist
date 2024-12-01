@@ -202,7 +202,7 @@
 
         try {
           const response = await fetch(
-            "https://api.myspotlight.me/api/v1/waitlist",
+            "https://apistaging.myspotlight.me/public/waitlist",
             {
               method: "POST",
               headers: {
@@ -210,8 +210,8 @@
               },
               body: JSON.stringify({
                 email: email,
-                phoneNumber: phone,
-                type: businessType.toUpperCase(),
+                phone_number: phone,
+                account_type: businessType.toUpperCase(),
               }),
             }
           );
